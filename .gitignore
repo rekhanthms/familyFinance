@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.angular/
+.tools/
+*.backup.json
+my-register-backup.json

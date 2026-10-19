@@ -1,0 +1,71 @@
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<ng-template #countBadge>
+  @if (alertCount() > 0) {
+    <span class="count" [class.count--severe]="alertSevere()">
+      {{ alertCount() }}<span class="visually-hidden"> need action</span>
+    </span>
+  }
+</ng-template>
+
+<div class="shell">
+  <aside class="sidebar">
+    <a class="brand" routerLink="/dashboard">Family Finance</a>
+    <nav aria-label="Main">
+      <ul>
+        @for (item of items; track item.path) {
+          <li>
+            <a class="nav-link" [routerLink]="'/' + item.path" routerLinkActive="active" ariaCurrentWhenActive="page">
+              {{ item.label }}
+              @if (item.path === 'renewals') {
+                <ng-container [ngTemplateOutlet]="countBadge" />
+              }
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <a class="brand brand--mobile" routerLink="/dashboard">Family Finance</a>
+      <app-family-selector />
+    </header>
+
+    <app-alert-banner />
+    <app-data-notices />
+
+    <main #main id="main-content" class="content" tabindex="-1">
+      <router-outlet />
+    </main>
+  </div>
+
+  <nav class="bottom-nav" aria-label="Main (phone)">
+    @for (item of primaryItems; track item.path) {
+      <a [routerLink]="'/' + item.path" routerLinkActive="active" ariaCurrentWhenActive="page">
+        <span class="tab-label">
+          {{ item.mobileLabel }}
+          @if (item.path === 'renewals') {
+            <ng-container [ngTemplateOutlet]="countBadge" />
+          }
+        </span>
+      </a>
+    }
+    <button type="button" [attr.aria-expanded]="moreOpen()" aria-controls="more-menu" (click)="moreOpen.set(!moreOpen())">
+      More
+    </button>
+  </nav>
+
+  @if (moreOpen()) {
+    <div class="more-sheet" id="more-menu">
+      @for (item of secondaryItems; track item.path) {
+        <a [routerLink]="'/' + item.path" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="moreOpen.set(false)">
+          {{ item.label }}
+        </a>
+      }
+    </div>
+  }
+</div>
+
+<app-confirm-dialog />
