@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 22
       - run: npm install -g npm@11.6.2
-      - run: npm ci
+      - run: npm install --no-audit --no-fund
       - run: npm run test:ci
       - name: Build (public, empty start)
         run: npx ng build --configuration pages --base-href "/${{ github.event.repository.name }}/"
