@@ -1,0 +1,74 @@
+/*
+ * Design tokens. Every colour used anywhere comes from here.
+ * `npm run check:contrast` reads this file and fails if any text/background pair drops below WCAG AA.
+ */
+:root {
+  /* Surfaces: paper, like the register the data came from */
+  --c-paper: #faf8f3;
+  --c-surface: #ffffff;
+  --c-sunken: #f2efe6;
+  --c-rule: #e3ded2;
+  --c-control-border: #7a8077;
+
+  /* Ink */
+  --c-ink: #1f2a24;
+  --c-ink-muted: #565d54;
+
+  /* Brand */
+  --c-forest: #1f4d3a;
+  --c-forest-deep: #163828;
+  --c-forest-wash: #e4eee8;
+  --c-gold: #b08d3c; /* decoration only (rules, markers). Never for text. */
+  --c-gold-ink: #7a5f1b; /* gold when it must be read */
+  --c-gold-wash: #f4ecd6;
+
+  /* Feedback */
+  --c-focus: #1c5fb8;
+  --c-danger: #a32020;
+  --c-danger-deep: #7f1818;
+  --c-danger-wash: #fbe4e1;
+
+  /* Renewal status: text on tinted background. Hue plus a written label, never colour alone. */
+  --s-overdue-fg: #9b1c1c;
+  --s-overdue-bg: #fbe4e1;
+  --s-due-today-fg: #8c2a08;
+  --s-due-today-bg: #fce2d3;
+  --s-urgent-fg: #7a3f00;
+  --s-urgent-bg: #fde9c8;
+  --s-due-soon-fg: #665000;
+  --s-due-soon-bg: #f6eeca;
+  --s-renewed-fg: #1f5a3a;
+  --s-renewed-bg: #dff0e6;
+  --s-upcoming-fg: #3d484f;
+  --s-upcoming-bg: #e8ecee;
+
+  /* Type */
+  --font: 'Manrope Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 0.9375rem;
+  --fs-md: 1.0625rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: 1.75rem;
+  --lh-tight: 1.25;
+  --lh-body: 1.55;
+
+  /* Space (4px grid) */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+
+  /* Shape: small radii on controls only; no pillowy containers */
+  --r-sm: 4px;
+  --r-md: 6px;
+  --shadow-pop: 0 6px 24px rgb(31 42 36 / 14%);
+
+  /* Layout */
+  --sidebar-w: 14rem;
+  --bottom-nav-h: 3.5rem;
+  --content-max: 72rem;
+}
